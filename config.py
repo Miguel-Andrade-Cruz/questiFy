@@ -55,29 +55,19 @@ def chooseModel(model_name = model_name, generation_config = generation_config, 
 
 
 
-def sendSimplePrompt(message: str, attach: (list | str) = False):
+def newSessionChat(prompt: str, attach: (list | str) = False):
     
-    if(not attach):
-        return MODEL.generate_content([message]).text
-
-    elif(type(attach) == list):
-        print(attach + message)
-        return MODEL.generate_content(attach + message).text
-    
-
-
-    return MODEL.generate_content([message, attach]).text
-
-
-
-
-def prepareFile(path: str):
-    return genai.upload_file(path)
-
-
-def chatSession(prompt):
     chat = MODEL.start_chat()
 
     response = chat.send_message(prompt)
 
     return response.text
+
+
+def sendPrompt(message: list) -> str:
+    return MODEL.generate_content(message).text
+
+
+def prepareFile(path: str):
+    return genai.upload_file(path)
+

@@ -23,8 +23,19 @@ class Teacher:
         return response
 
 
-    def requestForQuestions(this, content: str, metadata: str):
-        prompt = mtdt.data + [f"conteudo {content}", f"recursos de filtro {metadata}"]
+    def requestQuestions(this, content: str, questions_quantity: str, question_type: str) -> str:
+        
+        prompt = [
+            f"Matéria: {this.theme}",
+            f"Conteúdo: {content}",
+            f"recursos: {questions_quantity} questões, {question_type}"
+        ]
+
+        prompt = mtdt.data + prompt
+
+        response = cfg.sendPrompt(prompt)
+
+        return response
 
 
 #--------------------------------------------------------

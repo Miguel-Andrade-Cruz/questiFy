@@ -1,7 +1,7 @@
 import config as cfg
 import teacherClass as tch
 
-cfg.insertKey("YOUR_API_KEY_HERE")
+cfg.insertKey("YOUR_API_KEY")
 cfg.MODEL = cfg.chooseModel()
 
 
@@ -13,9 +13,9 @@ def main():
 
     ask = "Liste para mim três grandes filósofos."
 
-    response = roy.simpleAsk(ask)
+    question_wish = roy.requestQuestions("Existencialismo", "3", "descritiva")
 
-    print(response)
+    print(question_wish)
 
 
 
