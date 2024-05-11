@@ -1,7 +1,7 @@
 import config as cfg
 import teacherClass as tch
 
-cfg.insertKey("AIzaSyDw8KZuHzN7VBEcFS4Dndps_l2Z8XQnNQQ")
+cfg.insertKey("YOUR_API_KEY_HERE")
 cfg.MODEL = cfg.chooseModel()
 
 
